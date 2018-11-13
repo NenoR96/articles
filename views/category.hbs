@@ -1,0 +1,38 @@
+<form action="/category/{{category.title}}" method="POST">
+<div class="category">
+    <div class="form-group">
+        {{category.title}} sort by
+        <input type="hidden" id="category" name="category" value="{{category.title}}" class="form-control"/>
+        <select name="sortBy">  
+            <option value="date-new" selected="selected">Date - newest</option>
+            <option value="date-old">Date - oldest</option>
+            <option value="comments-most">Comments - most</option>
+            <option value="comments-less">Comments - less</option>
+            
+        </select>
+    </div>
+    <div class="form-group" style="margin-left: 25px;">
+        <button type="submit" class="btn btn-success">Sort</button>
+    </div>
+</div>    
+</form>
+
+{{#each articles}}
+ <div class="row">
+        {{#each this }}
+        <div class="col-sm-6 col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{this.img}}" alt="..." class="img-responsive">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text">{{this.descript}}</p>
+                    <div>
+                        {{this.date}} {{this.time}}
+                        <a href="/articles/{{this._id}}" class="btn btn-success float-right">View Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+ </div>
+{{/each}}

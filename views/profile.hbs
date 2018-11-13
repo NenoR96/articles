@@ -1,0 +1,68 @@
+     <div class="row">
+        <div class="col-sm-6 col-md-4">
+            {{#ifEquals user.id  users.id}}   
+            <form action="/user/profile/{{users._id}}" method="post" enctype="multipart/form-data">
+            <div class="card" style="width:300px " >
+                <img class="card-img-top" style="height:200px"src="{{users.img}}" alt="Card image">
+                <input class="form-control" id="img" name="img" type="hidden" value="{{article.img}}">
+                <div class="form-group">
+                <input name="myImage" id="myImage" type="file" class="form-control">
+                </div>
+                <div class="card-body">
+                    {{#if state}}
+                    <h4 class="card-title" ><i class="fas fa-toggle-on"></i> {{users.username}}</h4>
+                    {{else}}
+                    <h4 class="card-title"><i class="fas fa-toggle-off"></i> {{users.username}}</h4>
+                    {{/if}}
+                    <p class="card-text">
+                        <input value="{{users.email}}"type="text" id="email" name="email" class="form-control">
+                    </p>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success btn-lg btn-block">save</button>
+                    </div>
+                </div>
+            </div>
+            </form>     
+            {{else}}
+            <div class="card" style="width:300px " >
+                <img class="card-img-top" style="height:200px"src="{{users.img}}" alt="Card image">
+                <div class="card-body">
+                    {{#if state}}
+                    <h4 class="card-title" ><i class="fas fa-toggle-on"></i> {{users.username}}</h4>
+                    {{else}}
+                    <h4 class="card-title"><i class="fas fa-toggle-off"></i> {{users.username}}</h4>
+                    {{/if}}
+                    <p class="card-text">{{users.email}}</p>
+                </div>
+             </div>
+            {{/ifEquals}}
+            <div class="category">Comments by this user</div>
+            {{# each comments}}
+            <div>{{this.body}}</div>
+            {{/each}}
+        </div>
+  
+        <div class="col-sm-6 col-md-8">
+        <div class="category">ARTICLES POSTED BY USER</div>
+
+        {{# each articles}}    
+        <div class="row">
+            {{# each this}}
+            <div class="card">
+                <div class="card-header">
+                    {{this.title}}
+                </div>
+                <img class="card-img-top" src="{{this.img}}" alt="..." class="img-responsive">
+                <div class="card-body">
+                    <p class="card-text">{{this.descript}}</p>
+                    <div>
+                        {{this.date}} {{this.time}}
+                        <a href="/articles/{{this._id}}" class="btn btn-success float-right">View Article</a>
+                    </div>
+                </div>
+            </div>     
+        {{/each}}
+            </div>           
+        {{/each}}
+        </div>
+    </div>

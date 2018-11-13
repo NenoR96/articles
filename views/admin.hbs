@@ -1,0 +1,15 @@
+
+{{#each category}}
+    <div class="category">    
+        <a href="/category/{{this.title}}">{{this.title}}</a>
+    </div>
+{{/each}}
+<form action="/admin/category" method="POST">
+    <div class="form-group">
+        <label>Add name for category</label>
+        <input type="text" id="title" name="title" class="form-control">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block">Add</button>
+    </div>
+</form>

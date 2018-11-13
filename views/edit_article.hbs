@@ -1,0 +1,47 @@
+<div class="row">
+<form action="/articles/edit/{{article.id}}" method="POST" enctype="multipart/form-data">
+    <div class="col col-sm-6 col-md-6">
+        <div class="card bg-light mb-3" style="width: 500px;">
+        <div class="card-header">
+        <input value="{{article.title}}"type="text" id="title" name="title" class="form-control">
+        <label>Description
+   <input value="{{article.descript}}"  class="form-control"  id="descript" name="descript">          
+        </label>
+        </div>  
+        <div class="card-body">
+            <p class="card-text">
+                <textarea class="form-control" rows="5" id="body" name="body">{{article.body}}</textarea>                
+            </p>
+            <img class="card-img-top" style="height: 100%" src="{{article.img}}" alt="..." class="img-responsive">
+            <input class="form-control" id="img" name="img" type="hidden" value="{{article.img}}">
+            <div class="form-group">
+                <input name="myImage" id="myImage" type="file" class="form-control">
+            </div>
+        </div>
+        <div class="card-footer">Posted at: {{article.date}} {{article.time}} by  {{users.name}}</div>  
+        </div>
+    </div>
+    <div class="col col-sm-6 col-md-6">
+        {{# each comments}}
+        <div class="comment">{{this.body}}
+            <div align="right">{{this.author}}</div>
+        </div>
+        {{/each}}    
+    </div>
+    <div>
+        {{#ifEquals article.author  user.id}}
+            <form action="/articles/edit/{{article._id}}" method="POST">
+                <div class="form-group" style="margin-left: 25px;">
+                    
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Save</button>
+                </div>
+            </form>
+            <form action="/articles/delete/{{article._id}}" method="POST">
+                <div class="form-group" style="margin-left: 25px;">
+                    <button type="submit" class="btn btn-danger btn-lg btn-block">Delete</button>
+                </div>
+            </form>   
+        {{/ifEquals}} 
+    </div>
+    </form>       
+</div>

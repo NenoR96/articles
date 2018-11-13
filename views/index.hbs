@@ -1,0 +1,23 @@
+{{#each articles }}
+        <div class="category" style="width: 55%;">
+            <a href="/category/{{this.0.category}}">{{this.0.category}}</a>
+        </div>  
+    <div class="row">       
+        {{# each this }}
+            <div class="col-sm-6 col-md-2">
+                <div class="card">
+                    <img class="card-img-top" src="{{this.img}}" alt="..." class="img-responsive">
+                    <div class="card-body">
+                        <h5 class="card-title">{{this.title}}</h5>
+                        <p class="card-text">{{this.descript}}</p>
+                        <div>
+                            {{this.date}} {{this.time}}
+                            <a href="/articles/{{this._id}}" class="btn btn-success float-right">View Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+        {{/each}}
+    </div>
+{{/each}}

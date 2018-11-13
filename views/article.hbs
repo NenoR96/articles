@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col col-sm-6 col-md-6">
+        <div class="card bg-light mb-3" style="width: 500px;">
+        <div class="card-header">{{article.title}}</div>  
+        <div class="card-body">
+            <p class="card-text">{{article.body}}</p>
+            <img class="card-img-top" style="height: 100%" src="{{article.img}}" alt="..." class="img-responsive">
+        </div>
+        <div class="card-footer">Posted at: {{article.date}} {{article.time}} by  
+             <a href="/user/profile/{{author._id}}" class="btn btn-success float-right">{{author.name}}</a></div> 
+            
+        </div>
+        <form action="/articles/liked/{{article._id}}" method="POST">
+        {{#if state}}
+            <div class="form-group" style="width: 100px; margin-top: -15px; margin-left: 10px;">
+                <input class="form-control" id="state" name="state" type="hidden" value="{{state}}">
+                <button type="submit" class="btn btn-info btn-block">Unlike</button>
+            </div>
+        {{else}}
+            <div class="form-group" style="width: 100px; margin-top: -15px; margin-left: 10px;">
+                <button type="submit" class="btn btn-info btn-block">Like</button>
+            </div>
+        {{/if}}
+        </form> 
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Who liked</button>
+    </div>
+<!-------------------------------------------------------------------------------------->
+    <div class="col col-sm-6 col-md-6">
+        <div style="margin-top:20px;">  
+            <form action="/articles/{{article._id}}" method="POST">
+                <div class="form-group" style="width: 80%">
+                    <input type="hidden" id="article" name="article" value="{{article._id}}" class="form-control">
+                    <input type="text" id="body" name="body" class="form-control">
+                    <button style="margin-left: 70%; width: 30%" type="submit" class="btn btn-success btn-lg btn-block">Comment</button>
+                </div>
+            </form>  
+        </div>
+        {{# each comments}}
+        <div class="comment">{{this.body}}
+            <div align="right">{{this.author}}</div>
+        </div>
+        {{/each}}    
+    </div>
+    {{#ifEquals article.author  user.id}}
+    <form action="/articles/edit/{{article._id}}" method="GET">
+        <div class="form-group" style="margin-left: 25px;">
+            <button type="submit" class="btn btn-success btn-lg btn-block">Edit</button>
+        </div>
+    </form>
+    {{/ifEquals}}  
+</div>
+<!-------------------------------------------------------------------------------------->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+      <div class="modal-body">
+        {{#each liked}}
+            <div><p>{{this}}</p></div>
+        {{/each}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+ 
+  </div>
+</div>
