@@ -15,7 +15,7 @@
 
 ## Usage
 
-* In app.js rename the mongoose connection to database to your own or download mongodump file from repository
+* In app.js rename the mongoose connection to database to your own or download mongodump files from repository
 
 ### Installation
 
