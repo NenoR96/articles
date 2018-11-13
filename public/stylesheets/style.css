@@ -1,0 +1,100 @@
+body {
+  background-image: url("https://carrickswan.com/wp-content/uploads/2016/04/site-background.jpg");
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  border-style: initial;
+  border-color: rgb(0, 0, 0);
+}
+
+.comment {
+  margin-top: 20px;
+  width: 300px;
+  border-top: 2px solid rgb(79, 171, 233);
+  border-bottom: 2px solid rgb(79, 171, 233);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.808);
+  text-align: justify;
+}
+
+.footer {
+  margin-top: 10px;
+  border-radius: 0px;
+  border: none;
+  border-top: 3px solid rgb(79, 171, 233);
+  border-color: rgb(79, 171, 233);
+  background-color: rgb(255, 255, 255);
+}
+
+.navbar {
+  border-radius: 10px;
+  border: none;
+  border-bottom: 3px solid rgb(79, 171, 233);
+  border-color: rgb(79, 171, 233);
+  background-color: rgb(255, 255, 255);
+}
+
+.card {
+  width: 190px;
+  margin-left: 10px;
+  margin-top: 20px;
+  border-style: solid;
+  border-color: rgb(79, 171, 233);
+  background-color: rgba(255, 255, 255, 0.808);
+}
+
+.card img {
+  height: 150px;
+}
+
+.category {
+  width: 85%;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 10px;
+  border: none;
+  border-bottom: 3px solid rgb(79, 171, 233);  
+  border-radius: 5px;
+  background-color: rgb(250, 250, 250);
+}
+
+a {
+  color: #000000;
+}
+
+a:hover {
+  color: rgb(79, 171, 233);
+  text-decoration: none;
+}
+
+.myform {
+  margin-top: 50px;
+}
+
+.myform input {
+  border: none;
+  border-bottom: 2px solid rgb(79, 171, 233);
+  background-color: white;
+}
+
+.myform input:focus {
+  border: 1px solid black;
+}
+
+.myform textarea {
+  border: none;
+  border-bottom: 2px rgb(79, 171, 233);
+  background-color: #f1f1f1;
+  color: white;
+}
+
+.register {
+  font-size: 20px;
+  text-decoration: underline;
+  text-underline-position: under; 
+  text-decoration-color: rgb(79, 171, 233);
+}
